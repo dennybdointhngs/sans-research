@@ -1,0 +1,23 @@
+version: '3'
+
+volumes:
+  opt-splunk-etc:
+  opt-splunk-var:
+  splunk:
+
+services:
+  splunk:
+    hostname: splunk
+    networks:
+      - splunk
+    image: splunk/splunk
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: 'sans-research2023'
+    ports:
+      - "8000:8000"
+      - "8088:8088"
+
+networks:
+  splunk:
+    driver: host
