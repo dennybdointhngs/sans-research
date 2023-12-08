@@ -1,0 +1,7 @@
+22,ssh,tcp
+23,telnet,tcp
+25,smtp,tcp
+53,dns,udp
+80,http,tcp
+443,https,tcp
+445,smb,tcp
