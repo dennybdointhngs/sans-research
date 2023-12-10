@@ -1,3 +1,4 @@
-<nav color="#154e7a">
-    <view name="search" default="true" />
+<nav search_view="search" color="#afafaf">
+    <view name="eventgen_status" default="true" />
 </nav>
+

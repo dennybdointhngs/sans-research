@@ -16,7 +16,7 @@ services:
       SPLUNK_PASSWORD: 'sans-research2023'
     volumes:
       - ./apps/sans-research-app:/opt/splunk/etc/apps/sans-research-app
-      - ./app/SA-Eventgen:/opt/splunk/etc/apps/SA-Eventgens
+      - ./apps/SA-Eventgen:/opt/splunk/etc/apps/SA-Eventgen
     ports:
       - "8000:8000"
       - "8088:8088"
