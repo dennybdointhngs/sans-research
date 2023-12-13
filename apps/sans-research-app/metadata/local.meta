@@ -17,3 +17,43 @@ modtime = 1702012192.931021000
 [app/package/check_for_updates]
 version = 9.1.1
 modtime = 1702012192.931379000
+
+[savedsearches/Fill%20CTI%20Indicator%20KV%20Store]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702274489.867106000
+
+[macros/indicators]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702443409.626554000
+
+[props/firewall/REPORT-firewall]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702444872.482193000
+
+[transforms/REPORT-firewall]
+owner = admin
+version = 9.1.1
+modtime = 1702445057.087529000
+
+[props/firewall/LOOKUP-cti_indicators_firewall_src_ip]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702448915.572279000
+
+[props/firewall/LOOKUP-cti_indicators_firewall_dest_ip]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702448990.260851000
