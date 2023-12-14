@@ -49,11 +49,65 @@ access = read : [ * ], write : [ admin ]
 export = system
 owner = admin
 version = 9.1.1
-modtime = 1702448915.572279000
+modtime = 1702534611.780809000
 
 [props/firewall/LOOKUP-cti_indicators_firewall_dest_ip]
 access = read : [ * ], write : [ admin ]
 export = system
 owner = admin
 version = 9.1.1
-modtime = 1702448990.260851000
+modtime = 1702534602.355998000
+
+[props/dns/FIELDALIAS-answer]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702450059.517144000
+
+[props/firewall/LOOKUP-cti_indicators_dns_dest_ip]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702529335.994669000
+
+[props/firewall/LOOKUP-cti_indicators_dns_src_ip]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702529363.954003000
+
+[props/firewall/LOOKUP-cti_indicators_dns_answer]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702529396.079801000
+
+[macros/indicators%281%29]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702534022.502203000
+
+[props/dns/LOOKUP-cti_indicators_dns_answer]
+version = 9.1.1
+modtime = 1702534571.615311000
+
+[props/dns/LOOKUP-cti_indicators_dns_dest_ip]
+version = 9.1.1
+modtime = 1702534583.502909000
+
+[props/dns/LOOKUP-cti_indicators_dns_src_ip]
+version = 9.1.1
+modtime = 1702534592.804015000
+
+[savedsearches/Retroactive%20Hunt]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1702535670.372494000
