@@ -1,0 +1,90 @@
+
+<dashboard version="2" theme="dark">
+    <label>Retroactive Hunt</label>
+    <description></description>
+    <definition><![CDATA[
+{
+	"visualizations": {
+		"viz_EhuMf37V": {
+			"type": "splunk.markdown",
+			"options": {
+				"markdown": "The retroactive hunt search that searches over the last 7 days. The box below will not return the IOC hits, but rather, it will return the new contents of the cti_indicators KV store, which shows that an indicator has now been searched and the associated key of the indicator within the KV store.\n\nNOTE: IF an error occurs, click on the red box at the top-right corner of the box below and select \"Run Query\" to execute the search. This is because the search outputs to the KV store each time it runs.",
+				"fontSize": "large"
+			}
+		},
+		"viz_VeObmtbT": {
+			"type": "splunk.table",
+			"options": {},
+			"dataSources": {
+				"primary": "ds_JxxCj1Ti"
+			}
+		}
+	},
+	"dataSources": {
+		"ds_JxxCj1Ti": {
+			"type": "ds.search",
+			"options": {
+				"query": "index IN (firewall, dns) \n    [| `indicators(0)`] \n| eval threat_indicator=coalesce(answer_cti_indicator, src_ip_cti_indicator, dest_ip_cti_indicator) \n| eval threat_field=case(threat_indicator==answer_cti_indicator, \"answer\", threat_indicator==src_ip_cti_indicator, \"src_ip\", threat_indicator==dest_ip_cti_indicator, \"dest_ip\") \n| eval threat_key=coalesce(answer_cti_key, src_ip_cti_key, dest_ip_cti_key) \n| eval threat_confidence=coalesce(answer_cti_confidence, src_ip_cti_confidence, dest_ip_cti_confidence) \n| eval threat_source=coalesce(answer_cti_source, src_ip_cti_source, dest_ip_cti_source) \n| eval risk_field=case(threat_field IN (\"answer\", \"dest_ip\"), \"src_ip\", threat_field IN (\"src_ip\"), \"dest_ip\") \n| eval risk_item=case(risk_field==\"src_ip\", src_ip, risk_field==\"dest_ip\", dest_ip) \n| stats values(src_ip) as src_ip values(dest_ip) as dest_ip values(src_port) as src_port values(dest_port) as dest_port values(app) as app values(protocol) as protocol values(action) as action values(bytes) as bytes values(dest_mac) as dest_mac values(src_mac) as src_mac values(answer) as answer values(query{}) as query values(query_type{}) as query_type values(reply_code) as reply_code values(transaction_id) as transaction_id count by _time index sourcetype source host threat_indicator threat_field threat_key threat_confidence threat_source risk_item risk_field \n| rename index as original_index sourcetype as original_sourcetype source as original_source \n| collect index=intel output_format=hec testmode=true \n| collect index=intel output_format=hec file=cti_hits_summary \n| rename threat_indicator as indicator threat_key as key threat_confidence as confidence threat_source as source \n| table indicator searched key confidence source \n| dedup indicator \n| append \n    [| inputlookup cti_indicators \n    | eval key=_key \n    | fields indicator searched key confidence source] \n| eval searched=if(indicator==\"indicator_placeholder\",0,1) \n| dedup indicator \n| outputlookup cti_indicators append=true key_field=key",
+				"queryParameters": {
+					"earliest": "-7d@h",
+					"latest": "now"
+				}
+			},
+			"name": "Retroactive Hunt"
+		}
+	},
+	"defaults": {
+		"dataSources": {
+			"ds.search": {
+				"options": {
+					"queryParameters": {
+						"latest": "$global_time.latest$",
+						"earliest": "$global_time.earliest$"
+					}
+				}
+			}
+		}
+	},
+	"inputs": {},
+	"layout": {
+		"type": "grid",
+		"options": {
+			"width": 1440,
+			"height": 960
+		},
+		"structure": [
+			{
+				"item": "viz_EhuMf37V",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 0,
+					"w": 1440,
+					"h": 118
+				}
+			},
+			{
+				"item": "viz_VeObmtbT",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 118,
+					"w": 1440,
+					"h": 244
+				}
+			}
+		],
+		"globalInputs": []
+	},
+	"description": "",
+	"title": "Retroactive Hunt"
+}
+    ]]></definition>
+    <meta type="hiddenElements"><![CDATA[
+{
+	"hideEdit": false,
+	"hideOpenInSearch": false,
+	"hideExport": false
+}
+    ]]></meta>
+</dashboard>
