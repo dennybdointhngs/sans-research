@@ -1,0 +1,105 @@
+
+<dashboard version="2" theme="dark">
+    <label>Intel Search</label>
+    <description></description>
+    <definition><![CDATA[
+{
+	"dataSources": {
+		"ds_1VY7qjlD": {
+			"type": "ds.search",
+			"options": {
+				"query": "index=intel \n| rename fields.* as * \n| table _time original_index original_source original_sourcetype threat_indicator threat_field threat_source threat_confidence risk_item risk_field src_ip src_port src_mac dest_ip dest_port dest_mac app protocol action bytes query query_type answer",
+				"queryParameters": {
+					"earliest": "$global_time.earliest$",
+					"latest": "$global_time.latest$"
+				}
+			},
+			"name": "Table search"
+		}
+	},
+	"visualizations": {
+		"viz_r05Jk0u0": {
+			"type": "splunk.table",
+			"options": {
+				"dataOverlayMode": "none",
+				"drilldown": "none",
+				"showRowNumbers": false,
+				"showInternalFields": false
+			},
+			"dataSources": {
+				"primary": "ds_1VY7qjlD"
+			}
+		},
+		"viz_5oi3qwVs": {
+			"type": "splunk.markdown",
+			"options": {
+				"markdown": "The table contains the IOC hits identified from the original dataset. It includes any additional fields from the original dataset that may be useful in providing context surrounding the IOC hit.",
+				"fontSize": "large"
+			}
+		}
+	},
+	"inputs": {
+		"input_global_trp": {
+			"type": "input.timerange",
+			"options": {
+				"token": "global_time",
+				"defaultValue": "0,"
+			},
+			"title": "Global Time Range"
+		}
+	},
+	"layout": {
+		"type": "grid",
+		"options": {
+			"width": 1440,
+			"height": 960
+		},
+		"structure": [
+			{
+				"item": "viz_5oi3qwVs",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 0,
+					"w": 1440,
+					"h": 64
+				}
+			},
+			{
+				"item": "viz_r05Jk0u0",
+				"type": "block",
+				"position": {
+					"x": 0,
+					"y": 64,
+					"w": 1440,
+					"h": 554
+				}
+			}
+		],
+		"globalInputs": [
+			"input_global_trp"
+		]
+	},
+	"title": "Intel Search",
+	"defaults": {
+		"dataSources": {
+			"ds.search": {
+				"options": {
+					"queryParameters": {
+						"latest": "$global_time.latest$",
+						"earliest": "$global_time.earliest$"
+					}
+				}
+			}
+		}
+	}
+}
+    ]]></definition>
+    <meta type="hiddenElements"><![CDATA[
+{
+	"hideEdit": false,
+	"hideOpenInSearch": false,
+	"hideExport": false
+}
+    ]]></meta>
+</dashboard>

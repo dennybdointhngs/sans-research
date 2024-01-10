@@ -1,11 +1,7 @@
 <nav search_view="search" color="#afafaf">
     <view name="fill_cti_indicator_kv_store" default="true" />
     <view name="retroactive_hunt" />
-  	<collection label="Queries">
-      <saved name="Fill CTI Indicator KV Store" />
-      <saved name="Retroactive Hunt" />
-      <saved name="Proactive Hunt" />
-  	</collection>
+    <view name="intel_search" />
     <view name="reports" />
     <view name="search" />
 </nav>

@@ -121,7 +121,7 @@ modtime = 1702777487.388961000
 
 [nav/default]
 version = 9.1.1
-modtime = 1704780430.175388000
+modtime = 1704869705.719385000
 
 [views/fill_cti_indicator_kv_store]
 access = read : [ * ], write : [ admin ]
@@ -134,3 +134,15 @@ modtime = 1704779808.006023000
 owner = admin
 version = 9.1.1
 modtime = 1704780031.141951000
+
+[views/intel_search]
+owner = admin
+version = 9.1.1
+modtime = 1704869526.526496000
+
+[savedsearches/Intel%20Search]
+access = read : [ * ], write : [ admin ]
+export = system
+owner = admin
+version = 9.1.1
+modtime = 1704869648.876546000
