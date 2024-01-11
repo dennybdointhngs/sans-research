@@ -15,7 +15,7 @@
 		"viz_i4hRChwd": {
 			"type": "splunk.markdown",
 			"options": {
-				"markdown": "The following table lists the contents of the cti_indicators KV store. The searched column indicators if an indicator hasn't been searched for yet, meaning that it is new. The confidence and source columns were arbitrarily set to add some variety to the indicators.\n\n\nThe indicator_placeholder guarantees that there will always be an entry within the KV store. This is necessary because when the KV store is searched, if it returns no results, an empty string is searched thus returning all results.\n\n\n\n\n**NOTE:** IF an error occurs, click on the red box at the top-right corner of the box below and select \"Run Query\" to execute the search. This is because the search outputs to the KV store each time it runs.",
+				"markdown": "The following table lists the contents of the cti_indicators KV store. The searched column indicators if an indicator hasn't been searched for yet, meaning that it is new. The confidence and source columns were arbitrarily set to add some variety to the indicators. The indicator_placeholder guarantees that there will always be an entry within the KV store. This is necessary because when the KV store is searched, if it returns no results, an empty string is searched thus returning all results. \n\nNavigate to the \"Retroactive Hunt\" dashboard to continue once the results load below.\n\n\n\n\n**NOTE:** If an error occurs, click on the red box at the top-right corner of the box below and select \"Run Query\" to execute the search. This is because the search outputs to the KV store each time it runs.",
 				"fontSize": "large"
 			}
 		}
@@ -60,7 +60,7 @@
 					"x": 0,
 					"y": 0,
 					"w": 1440,
-					"h": 116
+					"h": 168
 				}
 			},
 			{
@@ -68,7 +68,7 @@
 				"type": "block",
 				"position": {
 					"x": 0,
-					"y": 116,
+					"y": 168,
 					"w": 1440,
 					"h": 224
 				}

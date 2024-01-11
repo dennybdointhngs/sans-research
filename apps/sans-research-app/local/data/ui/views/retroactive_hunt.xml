@@ -8,7 +8,7 @@
 		"viz_EhuMf37V": {
 			"type": "splunk.markdown",
 			"options": {
-				"markdown": "The retroactive hunt search that searches over the last 7 days. The box below will not return the IOC hits, but rather, it will return the new contents of the cti_indicators KV store, which shows that an indicator has now been searched and the associated key of the indicator within the KV store.\n\nNOTE: IF an error occurs, click on the red box at the top-right corner of the box below and select \"Run Query\" to execute the search. This is because the search outputs to the KV store each time it runs.",
+				"markdown": "The retroactive hunt search that searches over the last 7 days. The box below will not return the IOC hits, but rather, it will return the new contents of the cti_indicators KV store, which shows that an indicator has now been searched and the associated key of the indicator within the KV store. \n\nNavigate to the \"Intel Search\" Dashboard once the results load below.\n\nNOTE: IF an error occurs, click on the red box at the top-right corner of the box below and select \"Run Query\" to execute the search. This is because the search outputs to the KV store each time it runs.",
 				"fontSize": "large"
 			}
 		},

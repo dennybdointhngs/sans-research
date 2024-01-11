@@ -33,7 +33,7 @@
 		"viz_5oi3qwVs": {
 			"type": "splunk.markdown",
 			"options": {
-				"markdown": "The table contains the IOC hits identified from the original dataset. It includes any additional fields from the original dataset that may be useful in providing context surrounding the IOC hit.",
+				"markdown": "The table contains the IOC hits identified from the original dataset. It includes any additional fields from the original dataset that may be useful in providing context surrounding the IOC hit.\n\nOnce done, navigate to the Reports tab to view the underlying search by clicking \"Open in Search\" next to it.",
 				"fontSize": "large"
 			}
 		}
